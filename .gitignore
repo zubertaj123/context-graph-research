@@ -1,0 +1,37 @@
+.venv/
+__pycache__/
+out/
+*.kuzu
+*.kuzu.wal
+.pytest_cache/
+.env
+# downloads (LoCoMo, LongMemEval): re-fetch per paper2/README.md
+data/raw/
+# LaTeX build artefacts
+paper2/paper/*.aux
+paper2/paper/*.log
+paper2/paper/*.bbl
+paper2/paper/*.blg
+paper2/paper/*.out
+paper2/paper/*.toc
+paper2/paper/build.log
+# paper2/out: keep the merged results, weights, figures and logs that the paper's numbers come from;
+# skip the per-conversation run directories and the model-response cache (85 MB)
+!paper2/out/
+paper2/out/*
+!paper2/out/merged_*/
+!paper2/out/locomo_admit_all/
+!paper2/out/online_admit_all/
+!paper2/out/online2_admit_all/
+!paper2/out/w_loo/
+!paper2/out/fig/
+!paper2/out/*.log
+!paper2/out/lme_s_*/
+paper2/out/lme_s_*/turns.jsonl
+paper2/out/lme_s_*/sessions.jsonl
+
+# run logs with machine-local paths, editor state
+paper2/out/*.log
+paper2/paper/.claude/
+paper2/paper/arxiv-src/
+.DS_Store

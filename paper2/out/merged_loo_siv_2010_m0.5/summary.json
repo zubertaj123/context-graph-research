@@ -1,0 +1,508 @@
+{
+  "n": 1986,
+  "overall": {
+    "hit": {
+      "mean": 0.3232169954476479,
+      "ci95": [
+        0.3034774911482043,
+        0.34294385432473445
+      ],
+      "n": 1977,
+      "wilson95": [
+        0.3029604018172056,
+        0.3441592619563131
+      ]
+    },
+    "frac": {
+      "mean": 0.2735472355965222,
+      "ci95": [
+        0.2550204295396754,
+        0.29208878361296126
+      ],
+      "n": 1977
+    },
+    "mrr": {
+      "mean": 0.2297880334824851,
+      "ci95": [
+        0.2129574177582858,
+        0.24703482421155784
+      ],
+      "n": 1977
+    }
+  },
+  "by_category": {
+    "temporal": {
+      "hit": {
+        "mean": 0.353125,
+        "n": 320,
+        "wilson95": [
+          0.30278384534231395,
+          0.4069506638143833
+        ]
+      },
+      "frac": {
+        "mean": 0.3322916666666667,
+        "n": 320
+      },
+      "mrr": {
+        "mean": 0.2755143857878233,
+        "n": 320
+      }
+    },
+    "open-domain": {
+      "hit": {
+        "mean": 0.33707865168539325,
+        "n": 89,
+        "wilson95": [
+          0.24742835204837482,
+          0.4402111963993928
+        ]
+      },
+      "frac": {
+        "mean": 0.1727553125438122,
+        "n": 89
+      },
+      "mrr": {
+        "mean": 0.19611195066129117,
+        "n": 89
+      }
+    },
+    "multi-hop": {
+      "hit": {
+        "mean": 0.398576512455516,
+        "n": 281,
+        "wilson95": [
+          0.3430697650885639,
+          0.45681891601848956
+        ]
+      },
+      "frac": {
+        "mean": 0.16581611610175012,
+        "n": 281
+      },
+      "mrr": {
+        "mean": 0.21324446977642544,
+        "n": 281
+      }
+    },
+    "single-hop": {
+      "hit": {
+        "mean": 0.29964328180737215,
+        "n": 841,
+        "wilson95": [
+          0.269650544828372,
+          0.33145804604213874
+        ]
+      },
+      "frac": {
+        "mean": 0.28953626634958385,
+        "n": 841
+      },
+      "mrr": {
+        "mean": 0.2234825208582305,
+        "n": 841
+      }
+    },
+    "adversarial": {
+      "hit": {
+        "mean": 0.29596412556053814,
+        "n": 446,
+        "wilson95": [
+          0.2554877491519036,
+          0.3399252648527819
+        ]
+      },
+      "frac": {
+        "mean": 0.289237668161435,
+        "n": 446
+      },
+      "mrr": {
+        "mean": 0.22601318180485946,
+        "n": 446
+      }
+    }
+  },
+  "name": "merged_loo_siv_2010_m0.5",
+  "dataset": "locomo",
+  "policy": "siv_2010",
+  "policy_label": "Trust x Impact, al-Saffar & Heileman 2010, at turn granularity",
+  "gate": "matched live=0.5 (q=0.440)",
+  "conversations": [
+    {
+      "conv": "conv-26",
+      "policy": "siv_2010",
+      "gate": "matched live=0.5 (q=0.500)",
+      "candidates": 211,
+      "candidate_turns": 165,
+      "admitted_facts": 91,
+      "duplicates_suppressed": 14,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 83,
+      "facts": 94,
+      "live_facts": 94,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 81,
+      "shape_share_non_hub_deg_ge2": 0.08641975308641975,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 81,
+      "shape_max_non_hub_degree": 4,
+      "precision": 0.5487804878048781,
+      "recall": 0.3383458646616541,
+      "recall_reachable": 0.4891304347826087,
+      "admit_rate": 0.49696969696969695,
+      "evidence_coverage": 0.6917293233082706,
+      "seconds": 0.24,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.5,
+      "target_live": 98,
+      "size_gap": 0.04081632653061224
+    },
+    {
+      "conv": "conv-30",
+      "policy": "siv_2010",
+      "gate": "matched live=0.5 (q=0.500)",
+      "candidates": 194,
+      "candidate_turns": 152,
+      "admitted_facts": 77,
+      "duplicates_suppressed": 30,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 70,
+      "facts": 77,
+      "live_facts": 77,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 68,
+      "shape_share_non_hub_deg_ge2": 0.058823529411764705,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 68,
+      "shape_max_non_hub_degree": 3,
+      "precision": 0.2911392405063291,
+      "recall": 0.30666666666666664,
+      "recall_reachable": 0.4423076923076923,
+      "admit_rate": 0.5197368421052632,
+      "evidence_coverage": 0.6933333333333334,
+      "seconds": 0.2,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.5,
+      "target_live": 78,
+      "size_gap": 0.01282051282051282
+    },
+    {
+      "conv": "conv-41",
+      "policy": "siv_2010",
+      "gate": "matched live=0.5 (q=0.500)",
+      "candidates": 378,
+      "candidate_turns": 307,
+      "admitted_facts": 156,
+      "duplicates_suppressed": 46,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 131,
+      "facts": 159,
+      "live_facts": 159,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 129,
+      "shape_share_non_hub_deg_ge2": 0.15503875968992248,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 129,
+      "shape_max_non_hub_degree": 3,
+      "precision": 0.3202614379084967,
+      "recall": 0.3828125,
+      "recall_reachable": 0.44545454545454544,
+      "admit_rate": 0.498371335504886,
+      "evidence_coverage": 0.859375,
+      "seconds": 0.65,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.5,
+      "target_live": 164,
+      "size_gap": 0.03048780487804878
+    },
+    {
+      "conv": "conv-42",
+      "policy": "siv_2010",
+      "gate": "matched live=0.5 (q=0.530)",
+      "candidates": 331,
+      "candidate_turns": 246,
+      "admitted_facts": 135,
+      "duplicates_suppressed": 55,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 120,
+      "facts": 135,
+      "live_facts": 135,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 118,
+      "shape_share_non_hub_deg_ge2": 0.07627118644067797,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 118,
+      "shape_max_non_hub_degree": 4,
+      "precision": 0.46923076923076923,
+      "recall": 0.3388888888888889,
+      "recall_reachable": 0.48412698412698413,
+      "admit_rate": 0.5284552845528455,
+      "evidence_coverage": 0.7,
+      "seconds": 0.52,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.53,
+      "target_live": 134,
+      "size_gap": 0.007462686567164179
+    },
+    {
+      "conv": "conv-43",
+      "policy": "siv_2010",
+      "gate": "matched live=0.5 (q=0.500)",
+      "candidates": 369,
+      "candidate_turns": 259,
+      "admitted_facts": 154,
+      "duplicates_suppressed": 57,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 137,
+      "facts": 154,
+      "live_facts": 154,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 135,
+      "shape_share_non_hub_deg_ge2": 0.1037037037037037,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 135,
+      "shape_max_non_hub_degree": 3,
+      "precision": 0.3969465648854962,
+      "recall": 0.30952380952380953,
+      "recall_reachable": 0.4262295081967213,
+      "admit_rate": 0.5057915057915058,
+      "evidence_coverage": 0.7261904761904762,
+      "seconds": 0.68,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.5,
+      "target_live": 148,
+      "size_gap": 0.04054054054054054
+    },
+    {
+      "conv": "conv-44",
+      "policy": "siv_2010",
+      "gate": "matched live=0.5 (q=0.500)",
+      "candidates": 352,
+      "candidate_turns": 262,
+      "admitted_facts": 130,
+      "duplicates_suppressed": 74,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 116,
+      "facts": 130,
+      "live_facts": 130,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 114,
+      "shape_share_non_hub_deg_ge2": 0.08771929824561403,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 114,
+      "shape_max_non_hub_degree": 3,
+      "precision": 0.33587786259541985,
+      "recall": 0.3492063492063492,
+      "recall_reachable": 0.44,
+      "admit_rate": 0.5,
+      "evidence_coverage": 0.7936507936507936,
+      "seconds": 0.47,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.5,
+      "target_live": 135,
+      "size_gap": 0.037037037037037035
+    },
+    {
+      "conv": "conv-47",
+      "policy": "siv_2010",
+      "gate": "matched live=0.5 (q=0.500)",
+      "candidates": 361,
+      "candidate_turns": 256,
+      "admitted_facts": 156,
+      "duplicates_suppressed": 46,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 140,
+      "facts": 158,
+      "live_facts": 158,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 138,
+      "shape_share_non_hub_deg_ge2": 0.07971014492753623,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 138,
+      "shape_max_non_hub_degree": 3,
+      "precision": 0.34375,
+      "recall": 0.3333333333333333,
+      "recall_reachable": 0.4631578947368421,
+      "admit_rate": 0.5,
+      "evidence_coverage": 0.7196969696969697,
+      "seconds": 0.55,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.5,
+      "target_live": 154,
+      "size_gap": 0.025974025974025976
+    },
+    {
+      "conv": "conv-48",
+      "policy": "siv_2010",
+      "gate": "matched live=0.5 (q=0.470)",
+      "candidates": 352,
+      "candidate_turns": 266,
+      "admitted_facts": 137,
+      "duplicates_suppressed": 47,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 117,
+      "facts": 141,
+      "live_facts": 141,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 115,
+      "shape_share_non_hub_deg_ge2": 0.14782608695652175,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 115,
+      "shape_max_non_hub_degree": 3,
+      "precision": 0.456,
+      "recall": 0.3392857142857143,
+      "recall_reachable": 0.4318181818181818,
+      "admit_rate": 0.4699248120300752,
+      "evidence_coverage": 0.7857142857142857,
+      "seconds": 0.61,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.47,
+      "target_live": 144,
+      "size_gap": 0.020833333333333332
+    },
+    {
+      "conv": "conv-49",
+      "policy": "siv_2010",
+      "gate": "matched live=0.5 (q=0.530)",
+      "candidates": 296,
+      "candidate_turns": 226,
+      "admitted_facts": 122,
+      "duplicates_suppressed": 53,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 102,
+      "facts": 123,
+      "live_facts": 123,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 100,
+      "shape_share_non_hub_deg_ge2": 0.14,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 100,
+      "shape_max_non_hub_degree": 4,
+      "precision": 0.5583333333333333,
+      "recall": 0.36813186813186816,
+      "recall_reachable": 0.5,
+      "admit_rate": 0.5309734513274337,
+      "evidence_coverage": 0.7362637362637363,
+      "seconds": 0.51,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.53,
+      "target_live": 118,
+      "size_gap": 0.0423728813559322
+    },
+    {
+      "conv": "conv-50",
+      "policy": "siv_2010",
+      "gate": "matched live=0.5 (q=0.440)",
+      "candidates": 355,
+      "candidate_turns": 236,
+      "admitted_facts": 129,
+      "duplicates_suppressed": 68,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 106,
+      "facts": 130,
+      "live_facts": 130,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 104,
+      "shape_share_non_hub_deg_ge2": 0.1346153846153846,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 104,
+      "shape_max_non_hub_degree": 4,
+      "precision": 0.3269230769230769,
+      "recall": 0.2556390977443609,
+      "recall_reachable": 0.3148148148148148,
+      "admit_rate": 0.4406779661016949,
+      "evidence_coverage": 0.8120300751879699,
+      "seconds": 0.41,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.44,
+      "target_live": 136,
+      "size_gap": 0.04411764705882353
+    }
+  ],
+  "totals": {
+    "candidates": 3199.0,
+    "admitted_facts": 1287.0,
+    "live_facts": 1301.0,
+    "invalidated": 0.0,
+    "poison_candidates": 0.0,
+    "poison_admitted": 0.0,
+    "llm_calls": 0.0
+  },
+  "mean_admit_rate": 0.4990900894383401,
+  "mean_precision": 0.4047242773187799,
+  "mean_recall": 0.33218340924426454,
+  "mean_size_gap": 0.030246279609603067,
+  "shape": {
+    "shape_non_hub_vertices": 110.2,
+    "shape_share_non_hub_deg_ge2": 0.10701278470775452,
+    "shape_share_edges_non_hub_to_non_hub": 0.0,
+    "shape_non_hub_components": 110.2,
+    "shape_max_non_hub_degree": 3.4
+  },
+  "poison_retrieved_share": 0.0,
+  "provenance": {
+    "code_hash": "1567a77400f9d79f",
+    "extract_backend": "spacy",
+    "fallback_sentences": 0,
+    "data_file": "data/raw/locomo/locomo10.json",
+    "data_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "weights_sha256": null,
+    "argv": [
+      "run",
+      "--dataset",
+      "locomo",
+      "--policy",
+      "siv_2010",
+      "--offline",
+      "--match-live",
+      "0.5",
+      "--conv",
+      "conv-50",
+      "--name",
+      "loo_siv_2010_m0.5_conv-50"
+    ],
+    "written_at": "2026-10-19T15:26:00Z"
+  },
+  "merged_from": [
+    "paper2/out/loo_siv_2010_m0.5_conv-26",
+    "paper2/out/loo_siv_2010_m0.5_conv-30",
+    "paper2/out/loo_siv_2010_m0.5_conv-41",
+    "paper2/out/loo_siv_2010_m0.5_conv-42",
+    "paper2/out/loo_siv_2010_m0.5_conv-43",
+    "paper2/out/loo_siv_2010_m0.5_conv-44",
+    "paper2/out/loo_siv_2010_m0.5_conv-47",
+    "paper2/out/loo_siv_2010_m0.5_conv-48",
+    "paper2/out/loo_siv_2010_m0.5_conv-49",
+    "paper2/out/loo_siv_2010_m0.5_conv-50"
+  ]
+}

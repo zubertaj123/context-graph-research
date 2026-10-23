@@ -1,0 +1,36 @@
+== policy level: evidence-hit vs F1 / EM / abstained (n questions) ==
+  admit_all                n=1986  hit=0.643  f1=0.491  em=0.343  abstained=0.469
+  graph_gate_struct m0.5   n=1986  hit=0.431  f1=0.408  em=0.304  abstained=0.617
+  random m0.5              n=1986  hit=0.379  f1=0.388  em=0.290  abstained=0.622
+
+== per category F1 (admit_all / struct / random) and hit ==
+  adversarial  | admit_all  hit=0.643 f1=0.944 | graph_gate hit=0.422 f1=0.969 | random m0. hit=0.370 f1=0.957
+  multi-hop    | admit_all  hit=0.633 f1=0.242 | graph_gate hit=0.566 f1=0.206 | random m0. hit=0.516 f1=0.186
+  open-domain  | admit_all  hit=0.427 f1=0.148 | graph_gate hit=0.303 f1=0.133 | random m0. hit=0.180 f1=0.088
+  single-hop   | admit_all  hit=0.639 f1=0.440 | graph_gate hit=0.398 f1=0.284 | random m0. hit=0.353 f1=0.266
+  temporal     | admit_all  hit=0.722 f1=0.318 | graph_gate hit=0.447 f1=0.212 | random m0. hit=0.394 f1=0.183
+
+== question level, pooled over the three runs: F1 when the gold evidence was retrieved vs not ==
+  hit=1: n=2872 mean F1=0.571   hit=0: n=3059 mean F1=0.297   difference=+0.274
+  per category difference (hit=1 minus hit=0 F1):
+    adversarial  -0.004  (n 640/698)
+    multi-hop    +0.180  (n 482/361)
+    open-domain  +0.106  (n 81/186)
+    single-hop   +0.474  (n 1169/1354)
+    temporal     +0.306  (n 500/460)
+
+== paired per-conversation differences, struct minus random: hit and F1 (sign agreement is the check) ==
+  conv-26: d_hit=+0.082  d_f1=+0.038
+  conv-30: d_hit=+0.105  d_f1=+0.099
+  conv-41: d_hit=+0.073  d_f1=+0.013
+  conv-42: d_hit=+0.023  d_f1=-0.016
+  conv-43: d_hit=+0.041  d_f1=-0.011
+  conv-44: d_hit=+0.057  d_f1=+0.037
+  conv-47: d_hit=+0.089  d_f1=+0.055
+  conv-48: d_hit=-0.021  d_f1=-0.002
+  conv-49: d_hit=+0.031  d_f1=-0.014
+  conv-50: d_hit=+0.095  d_f1=+0.063
+  sign agreement: 7/10 conversations
+  Spearman(d_hit, d_f1) over conversations: +0.915
+
+== cost: calls=0 in=0 out=0 -> $0.00 at Haiku 5.5 prices

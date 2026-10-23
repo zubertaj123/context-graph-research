@@ -1,0 +1,21 @@
+% Minimal local reimplementation of Heiko Oberdiek's aliascnt.sty (the two commands llncs.cls uses),
+% written because TinyTeX's tlmgr could not install the oberdiek bundle on this machine. Replace by the
+% CTAN package when available; the interface (\newaliascnt, \aliascntresetthe) is the same.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{aliascnt}[2018/09/07 v1.5 Alias counter (local minimal reimplementation)]
+\newcommand*{\newaliascnt}[2]{%
+  \begingroup
+    \def\AC@glet##1{\global\expandafter\let\csname##1#1\expandafter\endcsname\csname##1#2\endcsname}%
+    \@ifundefined{c@#2}{\@nocounterr{#2}}{%
+      \expandafter\@ifdefinable\csname c@#1\endcsname{%
+        \AC@glet{c@}\AC@glet{the}\AC@glet{theH}\AC@glet{p@}%
+        \expandafter\gdef\csname cl@#1\expandafter\endcsname\expandafter{\csname cl@#2\endcsname}%
+        \expandafter\gdef\csname AC@cnt@#1\endcsname{#2}%
+      }%
+    }%
+  \endgroup}
+\newcommand*{\aliascntresetthe}[1]{%
+  \@ifundefined{AC@cnt@#1}{\PackageError{aliascnt}{`#1' is not an alias counter}{}}{%
+    \expandafter\let\csname the#1\expandafter\endcsname\csname the\csname AC@cnt@#1\endcsname\endcsname}}
+\newcommand*{\AC@findrootcnt}[1]{\@ifundefined{AC@cnt@#1}{#1}{\expandafter\AC@findrootcnt\csname AC@cnt@#1\endcsname}}
+\endinput
