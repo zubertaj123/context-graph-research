@@ -1,0 +1,46 @@
+    os.replace(tmp, f)  # atomic: a crash mid-write never leaves a half record that later reads as a hit
+    ~~~~~~~~~~^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'paper2/out/cache/anthropic_claude-haiku-5-5_low_think_off_temp_default/6983e463ef1eab119edd31def6605e63a2e697c5ab5a158842a285785d9f55f6.json.tmp' -> 'paper2/out/cache/anthropic_claude-haiku-5-5_low_think_off_temp_default/6983e463ef1eab119edd31def6605e63a2e697c5ab5a158842a285785d9f55f6.json'
+      temporal: hit=0.615(n=26) frac=0.615(n=26) mrr=0.495(n=26) f1=0.038(n=26) em=0.038(n=26)
+written paper2/out/online_graph_gate_struct_m0.5_conv-30
+      temporal: hit=0.481(n=27) frac=0.463(n=27) mrr=0.394(n=27) f1=0.048(n=27) em=0.000(n=27)
+written paper2/out/online_graph_gate_struct_m0.5_conv-41
+      temporal: hit=0.432(n=37) frac=0.432(n=37) mrr=0.321(n=37) f1=0.031(n=37) em=0.000(n=37)
+written paper2/out/online_graph_gate_struct_m0.5_conv-26
+      temporal: hit=0.400(n=40) frac=0.388(n=40) mrr=0.329(n=40) f1=0.057(n=40) em=0.000(n=40)
+written paper2/out/online_graph_gate_struct_m0.5_conv-42
+      temporal: hit=0.667(n=24) frac=0.625(n=24) mrr=0.364(n=24) f1=0.057(n=24) em=0.000(n=24)
+written paper2/out/online_graph_gate_struct_m0.5_conv-44
+      temporal: hit=0.423(n=26) frac=0.340(n=26) mrr=0.349(n=26) f1=0.045(n=26) em=0.000(n=26)
+written paper2/out/online_graph_gate_struct_m0.5_conv-43
+      temporal: hit=0.471(n=34) frac=0.426(n=34) mrr=0.357(n=34) f1=0.015(n=34) em=0.000(n=34)
+written paper2/out/online_graph_gate_struct_m0.5_conv-47
+      temporal: hit=0.310(n=42) frac=0.310(n=42) mrr=0.249(n=42) f1=0.013(n=42) em=0.000(n=42)
+written paper2/out/online_graph_gate_struct_m0.5_conv-48
+      temporal: hit=0.333(n=33) frac=0.303(n=33) mrr=0.279(n=33) f1=0.037(n=33) em=0.000(n=33)
+written paper2/out/online_graph_gate_struct_m0.5_conv-49
+      temporal: hit=0.484(n=31) frac=0.430(n=31) mrr=0.391(n=31) f1=0.043(n=32) em=0.000(n=32)
+written paper2/out/online_graph_gate_struct_m0.5_conv-50
+      temporal: hit=0.346(n=26) frac=0.346(n=26) mrr=0.293(n=26) f1=0.000(n=26) em=0.000(n=26)
+written paper2/out/online_random_m0.5_conv-30
+      temporal: hit=0.378(n=37) frac=0.378(n=37) mrr=0.315(n=37) f1=0.031(n=37) em=0.000(n=37)
+written paper2/out/online_random_m0.5_conv-26
+      temporal: hit=0.444(n=27) frac=0.426(n=27) mrr=0.386(n=27) f1=0.038(n=27) em=0.000(n=27)
+written paper2/out/online_random_m0.5_conv-41
+      temporal: hit=0.250(n=40) frac=0.250(n=40) mrr=0.237(n=40) f1=0.031(n=40) em=0.000(n=40)
+written paper2/out/online_random_m0.5_conv-42
+      temporal: hit=0.423(n=26) frac=0.340(n=26) mrr=0.372(n=26) f1=0.052(n=26) em=0.000(n=26)
+written paper2/out/online_random_m0.5_conv-43
+      temporal: hit=0.625(n=24) frac=0.583(n=24) mrr=0.334(n=24) f1=0.045(n=24) em=0.000(n=24)
+written paper2/out/online_random_m0.5_conv-44
+      temporal: hit=0.382(n=34) frac=0.328(n=34) mrr=0.277(n=34) f1=0.015(n=34) em=0.000(n=34)
+written paper2/out/online_random_m0.5_conv-47
+      temporal: hit=0.381(n=42) frac=0.333(n=42) mrr=0.262(n=42) f1=0.007(n=42) em=0.000(n=42)
+written paper2/out/online_random_m0.5_conv-48
+      temporal: hit=0.303(n=33) frac=0.288(n=33) mrr=0.260(n=33) f1=0.065(n=33) em=0.000(n=33)
+written paper2/out/online_random_m0.5_conv-49
+      temporal: hit=0.516(n=31) frac=0.478(n=31) mrr=0.405(n=31) f1=0.070(n=32) em=0.000(n=32)
+written paper2/out/online_random_m0.5_conv-50
+online_admit_all                         n=1986 hit=0.643 f1=0.427 em=0.322
+merged_online_graph_gate_struct_m0.5     n=1986 hit=0.431 f1=0.369 em=0.298
+merged_online_random_m0.5                n=1986 hit=0.379 f1=0.358 em=0.284

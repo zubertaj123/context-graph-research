@@ -1,0 +1,121 @@
+# One YAML file is the source of truth: everything else is
+# generated from it (OWL + SHACL Turtle, Kuzu schema) and checked against it
+# (the declared-vs-extant ontology diff in cgraph.measures).
+version: "0.1"
+namespace: "http://example.org/tsg#"
+instance_namespace: "http://example.org/data/"
+layers: [process, catalog, evidence, memory, taxonomy, lifecycle]
+upper_types: [PERSON, ORGANIZATION, LOCATION, EVENT, OBJECT]   # POLE+O, memory layer
+envelope: [source_lane, source_ref, status, authority, risk_tier, confidence, version,
+           content_hash, valid_from, valid_to, authored_by, attested_by, owner]
+enums:
+  status: [candidate, approved, deprecated, rejected]
+  authority: [canonical, candidate, evidence]
+  risk_tier: [T0, T1, T2, T3]
+  customer_effort: [low, medium, high]
+  resolution: [system, ask_customer]
+governance_tags:          # tag -> review tier floor; also which channel may instruct
+  firmware: T3
+  data_loss: T3
+  dispatch: T2
+  parts: T2
+  onsite: T2
+  settings_reset: T1
+  pii: T2            # column tags: drive the guard and value sampling
+  restricted: T3
+channels:
+  engineer: {may_instruct: [firmware, data_loss, dispatch, parts, onsite, settings_reset]}
+  nba_agent: {may_instruct: [dispatch, parts, settings_reset]}
+  virtual_assistant: {may_instruct: [settings_reset]}
+  self_service: {may_instruct: []}
+
+classes:
+  # ---- process (canonical instructions) ----
+  - {name: Flow,          layer: process,  required: [id, title, kind, product_line, human_summary]}
+  - {name: Step,          layer: process,  required: [id, title, human_summary, rationale, customer_effort],
+     enum: {customer_effort: customer_effort}}
+  - {name: DecisionTable, layer: process,  required: [id, hit_policy]}
+  - {name: Rule,          layer: process,  required: [id, expr, priority]}
+  - {name: Variable,      layer: process,  required: [id, name, resolution], enum: {resolution: resolution}}
+  - {name: Action,        layer: process,  required: [id, name, kind]}
+  # ---- catalog (where a value lives; never the value) ----
+  - {name: Database,      layer: catalog,  required: [id, name, platform]}
+  - {name: Schema,        layer: catalog,  required: [id, name]}
+  - {name: Table,         layer: catalog,  required: [id, name]}
+  - {name: Column,        layer: catalog,  required: [id, name, type, description]}
+  # ---- evidence (what docs and cases say; never an instruction) ----
+  - {name: Document,      layer: evidence, required: [id, title, doc_type, model, revision, locale, is_latest]}
+  - {name: Chunk,         layer: evidence, required: [id, page, text, is_latest]}
+  - {name: Entity,        layer: evidence, required: [id, name, type, upper_type]}
+  - {name: Case,          layer: evidence, required: [id, symptom, outcome]}
+  - {name: Symptom,       layer: evidence, required: [id, name]}
+  # ---- memory (what agents did and learned) ----
+  - {name: User,          layer: memory,   required: [id, channel]}
+  - {name: Conversation,  layer: memory,   required: [id, session_id]}
+  - {name: Message,       layer: memory,   required: [id, role, content]}
+  - {name: ReasoningTrace,layer: memory,   required: [id, task, outcome, success]}
+  - {name: ReasoningStep, layer: memory,   required: [id, action, order]}
+  - {name: ToolCall,      layer: memory,   required: [id, tool, call_status]}
+  - {name: Memory,        layer: memory,   required: [id, signature, success_rate, support, legible]}
+  - {name: PromptVersion, layer: memory,   required: [id, surface, version]}
+  # ---- taxonomy (one vocabulary) ----
+  - {name: ProductLine,   layer: taxonomy, required: [id, name]}
+  - {name: Model,         layer: taxonomy, required: [id, name]}
+  - {name: BusinessTerm,  layer: taxonomy, required: [id, term, definition]}
+  - {name: GovernanceTag, layer: taxonomy, required: [id, key, tier]}
+  # ---- lifecycle (how knowledge changes: supersede, never delete) ----
+  - {name: ChangeSet,     layer: lifecycle, required: [id, kind, graduation, tier, proposer]}
+
+relations:
+  # intra-layer
+  - {type: HAS_STEP,       from: Flow,          to: Step,          layer: process}
+  - {type: STARTS_AT,      from: Flow,          to: Step,          layer: process}
+  - {type: NEXT,           from: Step,          to: Step,          layer: process}
+  - {type: PERFORMS,       from: Step,          to: Action,        layer: process}
+  - {type: EVALUATES,      from: Step,          to: DecisionTable, layer: process}
+  - {type: HAS_RULE,       from: DecisionTable, to: Rule,          layer: process}
+  - {type: USES,           from: Rule,          to: Variable,      layer: process}
+  - {type: ROUTES_TO,      from: Rule,          to: Step,          layer: process}
+  - {type: HAS_SYMPTOM,    from: Flow,          to: Symptom,       layer: process}
+  - {type: HAS_SCHEMA,     from: Database,      to: Schema,        layer: catalog}
+  - {type: HAS_TABLE,      from: Schema,        to: Table,         layer: catalog}
+  - {type: HAS_COLUMN,     from: Table,         to: Column,        layer: catalog}
+  - {type: REFERENCES,     from: Column,        to: Column,        layer: catalog}
+  - {type: ABOUT_PRODUCT,  from: Document,      to: Model,         layer: evidence}
+  - {type: HAS_CHUNK,      from: Document,      to: Chunk,         layer: evidence}
+  - {type: NEXT_CHUNK,     from: Chunk,         to: Chunk,         layer: evidence}
+  - {type: MENTIONS,       from: Chunk,         to: Entity,        layer: evidence}
+  - {type: CASE_MODEL,     from: Case,          to: Model,         layer: evidence}
+  - {type: CASE_SYMPTOM,   from: Case,          to: Symptom,       layer: evidence}
+  - {type: HAS_CONVERSATION, from: User,        to: Conversation,  layer: memory}
+  - {type: HAS_MESSAGE,    from: Conversation,  to: Message,       layer: memory}
+  - {type: HAS_TRACE,      from: Conversation,  to: ReasoningTrace, layer: memory}
+  - {type: HAS_REASONING_STEP, from: ReasoningTrace, to: ReasoningStep, layer: memory}
+  - {type: USES_TOOL,      from: ReasoningStep, to: ToolCall,      layer: memory}
+  - {type: LEARNED_FROM,   from: Memory,        to: ReasoningTrace, layer: memory}
+  - {type: IN_LINE,        from: Model,         to: ProductLine,   layer: taxonomy}
+  # bridge edges: cross-layer, each with a written why
+  - {type: RESOLVED_BY,    from: Variable,      to: Column,        layer: bridge, bridge: true,
+     why: "the agent fetches a value from the system of record instead of asking the customer"}
+  - {type: SAME_AS,        from: Entity,        to: [Model, Action], layer: bridge, bridge: true,
+     why: "mined text attaches to the canonical node; one edge, no cliques, confidence on the edge"}
+  - {type: EVIDENCED_BY,   from: Step,          to: Chunk,         layer: bridge, bridge: true,
+     why: "citations sit next to the instruction they support"}
+  - {type: TAGGED_WITH,    from: [Action, Column, Variable], to: GovernanceTag, layer: bridge, bridge: true,
+     why: "one vocabulary; tags set review tier and which channel may instruct"}
+  - {type: DEFINED_BY,     from: Variable,      to: BusinessTerm,  layer: bridge, bridge: true,
+     why: "every decision variable has a human definition"}
+  - {type: TOUCHED,        from: ReasoningStep, to: [Step, Chunk, Memory, Column, Flow], layer: bridge, bridge: true,
+     why: "which nodes an agent read for an answer"}
+  - {type: ABOUT,          from: [ReasoningTrace, Memory], to: Flow, layer: bridge, bridge: true,
+     why: "which flow a trace or learned rule is about"}
+  - {type: SUGGESTS,       from: Memory,        to: Action,        layer: bridge, bridge: true,
+     why: "a learned rule recommends a canonical action; served as evidence, never as instruction"}
+  - {type: RAN_UNDER,      from: ReasoningTrace, to: PromptVersion, layer: bridge, bridge: true,
+     why: "which prompt version produced the trace"}
+  - {type: DERIVED_FROM,   from: ChangeSet,     to: [ReasoningTrace, Memory], layer: bridge, bridge: true,
+     why: "a reviewer sees the traces behind a proposal"}
+  - {type: PROPOSES,       from: ChangeSet,     to: Step,          layer: bridge, bridge: true,
+     why: "what a change set would alter"}
+  - {type: CONFLICTS_WITH, from: ChangeSet,     to: Step,          layer: bridge, bridge: true,
+     why: "disagreement is a fact for an arbiter, not a silent override"}

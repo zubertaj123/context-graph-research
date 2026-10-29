@@ -1,0 +1,508 @@
+{
+  "n": 1986,
+  "overall": {
+    "hit": {
+      "mean": 0.45928174001011635,
+      "ci95": [
+        0.43753161355589276,
+        0.4815376833586242
+      ],
+      "n": 1977,
+      "wilson95": [
+        0.4374149186195049,
+        0.48130649177754303
+      ]
+    },
+    "frac": {
+      "mean": 0.40931636955000056,
+      "ci95": [
+        0.388821689762653,
+        0.43026674021500655
+      ],
+      "n": 1977
+    },
+    "mrr": {
+      "mean": 0.31687773415906517,
+      "ci95": [
+        0.29784399016261387,
+        0.33611167202934944
+      ],
+      "n": 1977
+    }
+  },
+  "by_category": {
+    "temporal": {
+      "hit": {
+        "mean": 0.50625,
+        "n": 320,
+        "wilson95": [
+          0.4517232964734679,
+          0.5606284265411408
+        ]
+      },
+      "frac": {
+        "mean": 0.4822916666666666,
+        "n": 320
+      },
+      "mrr": {
+        "mean": 0.3771065853919472,
+        "n": 320
+      }
+    },
+    "open-domain": {
+      "hit": {
+        "mean": 0.38202247191011235,
+        "n": 89,
+        "wilson95": [
+          0.2879491474996802,
+          0.4858588013762895
+        ]
+      },
+      "frac": {
+        "mean": 0.23578681728053835,
+        "n": 89
+      },
+      "mrr": {
+        "mean": 0.2031781701444623,
+        "n": 89
+      }
+    },
+    "multi-hop": {
+      "hit": {
+        "mean": 0.4697508896797153,
+        "n": 281,
+        "wilson95": [
+          0.412198484610244,
+          0.5281191922111578
+        ]
+      },
+      "frac": {
+        "mean": 0.2250300208625738,
+        "n": 281
+      },
+      "mrr": {
+        "mean": 0.24183966321155795,
+        "n": 281
+      }
+    },
+    "single-hop": {
+      "hit": {
+        "mean": 0.45422116527942924,
+        "n": 841,
+        "wilson95": [
+          0.42085471896237603,
+          0.48800392049468433
+        ]
+      },
+      "frac": {
+        "mean": 0.44490685691636933,
+        "n": 841
+      },
+      "mrr": {
+        "mean": 0.32793962689810247,
+        "n": 841
+      }
+    },
+    "adversarial": {
+      "hit": {
+        "mean": 0.4439461883408072,
+        "n": 446,
+        "wilson95": [
+          0.3985087078549982,
+          0.4903410212671681
+        ]
+      },
+      "frac": {
+        "mean": 0.4405829596412556,
+        "n": 446
+      },
+      "mrr": {
+        "mean": 0.32277162417138944,
+        "n": 446
+      }
+    }
+  },
+  "name": "merged_loo_impact_2010_m0.75",
+  "dataset": "locomo",
+  "policy": "impact_2010",
+  "policy_label": "Impact alone (2010), ablation",
+  "gate": "matched live=0.75 (q=0.770)",
+  "conversations": [
+    {
+      "conv": "conv-26",
+      "policy": "impact_2010",
+      "gate": "matched live=0.75 (q=0.800)",
+      "candidates": 211,
+      "candidate_turns": 165,
+      "admitted_facts": 145,
+      "duplicates_suppressed": 15,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 127,
+      "facts": 148,
+      "live_facts": 148,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 125,
+      "shape_share_non_hub_deg_ge2": 0.096,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 125,
+      "shape_max_non_hub_degree": 5,
+      "precision": 0.5403225806451613,
+      "recall": 0.5037593984962406,
+      "recall_reachable": 0.7282608695652174,
+      "admit_rate": 0.7515151515151515,
+      "evidence_coverage": 0.6917293233082706,
+      "seconds": 0.33,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.8,
+      "target_live": 148,
+      "size_gap": 0.0
+    },
+    {
+      "conv": "conv-30",
+      "policy": "impact_2010",
+      "gate": "matched live=0.75 (q=0.770)",
+      "candidates": 194,
+      "candidate_turns": 152,
+      "admitted_facts": 117,
+      "duplicates_suppressed": 35,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 94,
+      "facts": 117,
+      "live_facts": 117,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 92,
+      "shape_share_non_hub_deg_ge2": 0.15217391304347827,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 92,
+      "shape_max_non_hub_degree": 4,
+      "precision": 0.3185840707964602,
+      "recall": 0.48,
+      "recall_reachable": 0.6923076923076923,
+      "admit_rate": 0.743421052631579,
+      "evidence_coverage": 0.6933333333333334,
+      "seconds": 0.26,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.77,
+      "target_live": 116,
+      "size_gap": 0.008620689655172414
+    },
+    {
+      "conv": "conv-41",
+      "policy": "impact_2010",
+      "gate": "matched live=0.75 (q=0.748)",
+      "candidates": 378,
+      "candidate_turns": 307,
+      "admitted_facts": 228,
+      "duplicates_suppressed": 46,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 182,
+      "facts": 230,
+      "live_facts": 230,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 180,
+      "shape_share_non_hub_deg_ge2": 0.1388888888888889,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 180,
+      "shape_max_non_hub_degree": 6,
+      "precision": 0.33796296296296297,
+      "recall": 0.5703125,
+      "recall_reachable": 0.6636363636363637,
+      "admit_rate": 0.7035830618892508,
+      "evidence_coverage": 0.859375,
+      "seconds": 0.96,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.7475,
+      "target_live": 247,
+      "size_gap": 0.06882591093117409
+    },
+    {
+      "conv": "conv-42",
+      "policy": "impact_2010",
+      "gate": "matched live=0.75 (q=0.800)",
+      "candidates": 331,
+      "candidate_turns": 246,
+      "admitted_facts": 207,
+      "duplicates_suppressed": 55,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 171,
+      "facts": 208,
+      "live_facts": 208,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 169,
+      "shape_share_non_hub_deg_ge2": 0.1301775147928994,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 169,
+      "shape_max_non_hub_degree": 4,
+      "precision": 0.46808510638297873,
+      "recall": 0.4888888888888889,
+      "recall_reachable": 0.6984126984126984,
+      "admit_rate": 0.7642276422764228,
+      "evidence_coverage": 0.7,
+      "seconds": 0.66,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.8,
+      "target_live": 201,
+      "size_gap": 0.03482587064676617
+    },
+    {
+      "conv": "conv-43",
+      "policy": "impact_2010",
+      "gate": "matched live=0.75 (q=0.740)",
+      "candidates": 369,
+      "candidate_turns": 259,
+      "admitted_facts": 210,
+      "duplicates_suppressed": 51,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 179,
+      "facts": 210,
+      "live_facts": 210,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 177,
+      "shape_share_non_hub_deg_ge2": 0.14124293785310735,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 177,
+      "shape_max_non_hub_degree": 3,
+      "precision": 0.48333333333333334,
+      "recall": 0.5178571428571429,
+      "recall_reachable": 0.7131147540983607,
+      "admit_rate": 0.694980694980695,
+      "evidence_coverage": 0.7261904761904762,
+      "seconds": 0.72,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.74,
+      "target_live": 221,
+      "size_gap": 0.049773755656108594
+    },
+    {
+      "conv": "conv-44",
+      "policy": "impact_2010",
+      "gate": "matched live=0.75 (q=0.702)",
+      "candidates": 352,
+      "candidate_turns": 262,
+      "admitted_facts": 206,
+      "duplicates_suppressed": 73,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 176,
+      "facts": 207,
+      "live_facts": 207,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 174,
+      "shape_share_non_hub_deg_ge2": 0.10919540229885058,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 174,
+      "shape_max_non_hub_degree": 6,
+      "precision": 0.38578680203045684,
+      "recall": 0.6031746031746031,
+      "recall_reachable": 0.76,
+      "admit_rate": 0.7519083969465649,
+      "evidence_coverage": 0.7936507936507936,
+      "seconds": 0.61,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.7024999999999999,
+      "target_live": 202,
+      "size_gap": 0.024752475247524754
+    },
+    {
+      "conv": "conv-47",
+      "policy": "impact_2010",
+      "gate": "matched live=0.75 (q=0.710)",
+      "candidates": 361,
+      "candidate_turns": 256,
+      "admitted_facts": 222,
+      "duplicates_suppressed": 54,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 196,
+      "facts": 224,
+      "live_facts": 224,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 194,
+      "shape_share_non_hub_deg_ge2": 0.09278350515463918,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 194,
+      "shape_max_non_hub_degree": 3,
+      "precision": 0.3442622950819672,
+      "recall": 0.4772727272727273,
+      "recall_reachable": 0.6631578947368421,
+      "admit_rate": 0.71484375,
+      "evidence_coverage": 0.7196969696969697,
+      "seconds": 0.77,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.71,
+      "target_live": 230,
+      "size_gap": 0.02608695652173913
+    },
+    {
+      "conv": "conv-48",
+      "policy": "impact_2010",
+      "gate": "matched live=0.75 (q=0.740)",
+      "candidates": 352,
+      "candidate_turns": 266,
+      "admitted_facts": 202,
+      "duplicates_suppressed": 48,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 172,
+      "facts": 207,
+      "live_facts": 207,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 170,
+      "shape_share_non_hub_deg_ge2": 0.13529411764705881,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 170,
+      "shape_max_non_hub_degree": 6,
+      "precision": 0.453551912568306,
+      "recall": 0.49404761904761907,
+      "recall_reachable": 0.6287878787878788,
+      "admit_rate": 0.6879699248120301,
+      "evidence_coverage": 0.7857142857142857,
+      "seconds": 0.82,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.74,
+      "target_live": 217,
+      "size_gap": 0.04608294930875576
+    },
+    {
+      "conv": "conv-49",
+      "policy": "impact_2010",
+      "gate": "matched live=0.75 (q=0.800)",
+      "candidates": 296,
+      "candidate_turns": 226,
+      "admitted_facts": 178,
+      "duplicates_suppressed": 56,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 146,
+      "facts": 181,
+      "live_facts": 181,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 144,
+      "shape_share_non_hub_deg_ge2": 0.1527777777777778,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 144,
+      "shape_max_non_hub_degree": 4,
+      "precision": 0.5882352941176471,
+      "recall": 0.5494505494505495,
+      "recall_reachable": 0.746268656716418,
+      "admit_rate": 0.7522123893805309,
+      "evidence_coverage": 0.7362637362637363,
+      "seconds": 0.5,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.8,
+      "target_live": 177,
+      "size_gap": 0.022598870056497175
+    },
+    {
+      "conv": "conv-50",
+      "policy": "impact_2010",
+      "gate": "matched live=0.75 (q=0.770)",
+      "candidates": 355,
+      "candidate_turns": 236,
+      "admitted_facts": 200,
+      "duplicates_suppressed": 72,
+      "poison_candidates": 0,
+      "poison_admitted": 0,
+      "entities": 156,
+      "facts": 201,
+      "live_facts": 201,
+      "invalidated": 0,
+      "shape_non_hub_vertices": 154,
+      "shape_share_non_hub_deg_ge2": 0.14285714285714285,
+      "shape_share_edges_non_hub_to_non_hub": 0.0,
+      "shape_non_hub_components": 154,
+      "shape_max_non_hub_degree": 6,
+      "precision": 0.40350877192982454,
+      "recall": 0.518796992481203,
+      "recall_reachable": 0.6388888888888888,
+      "admit_rate": 0.7245762711864406,
+      "evidence_coverage": 0.8120300751879699,
+      "seconds": 0.6,
+      "llm_calls": 0,
+      "llm_input_tokens": 0,
+      "llm_output_tokens": 0,
+      "q_matched": 0.77,
+      "target_live": 204,
+      "size_gap": 0.014705882352941176
+    }
+  ],
+  "totals": {
+    "candidates": 3199.0,
+    "admitted_facts": 1915.0,
+    "live_facts": 1933.0,
+    "invalidated": 0.0,
+    "poison_candidates": 0.0,
+    "poison_admitted": 0.0,
+    "llm_calls": 0.0
+  },
+  "mean_admit_rate": 0.7289238335618664,
+  "mean_precision": 0.4323633129849099,
+  "mean_recall": 0.5203560421668973,
+  "mean_size_gap": 0.02962733603766793,
+  "shape": {
+    "shape_non_hub_vertices": 157.9,
+    "shape_share_non_hub_deg_ge2": 0.12913912003138434,
+    "shape_share_edges_non_hub_to_non_hub": 0.0,
+    "shape_non_hub_components": 157.9,
+    "shape_max_non_hub_degree": 4.7
+  },
+  "poison_retrieved_share": 0.0,
+  "provenance": {
+    "code_hash": "1567a77400f9d79f",
+    "extract_backend": "spacy",
+    "fallback_sentences": 0,
+    "data_file": "data/raw/locomo/locomo10.json",
+    "data_sha256": "79fa87e90f04081343b8c8debecb80a9a6842b76a7aa537dc9fdf651ea698ff4",
+    "weights_sha256": null,
+    "argv": [
+      "run",
+      "--dataset",
+      "locomo",
+      "--policy",
+      "impact_2010",
+      "--offline",
+      "--match-live",
+      "0.75",
+      "--conv",
+      "conv-50",
+      "--name",
+      "loo_impact_2010_m0.75_conv-50"
+    ],
+    "written_at": "2026-10-19T15:26:40Z"
+  },
+  "merged_from": [
+    "paper2/out/loo_impact_2010_m0.75_conv-26",
+    "paper2/out/loo_impact_2010_m0.75_conv-30",
+    "paper2/out/loo_impact_2010_m0.75_conv-41",
+    "paper2/out/loo_impact_2010_m0.75_conv-42",
+    "paper2/out/loo_impact_2010_m0.75_conv-43",
+    "paper2/out/loo_impact_2010_m0.75_conv-44",
+    "paper2/out/loo_impact_2010_m0.75_conv-47",
+    "paper2/out/loo_impact_2010_m0.75_conv-48",
+    "paper2/out/loo_impact_2010_m0.75_conv-49",
+    "paper2/out/loo_impact_2010_m0.75_conv-50"
+  ]
+}

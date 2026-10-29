@@ -1,0 +1,15 @@
+rdflib>=7.0
+pyshacl>=0.26
+pyoxigraph>=0.4
+networkx>=3.0
+kuzu>=0.9
+neo4j>=5.0
+pandas
+numpy
+pyyaml
+pydantic>=2
+matplotlib
+pytest
+rapidfuzz>=3.0
+anthropic>=1.0   # optional: only for the LLM arms of paper2
+spacy>=3.8        # extraction backend for paper2 (then: python -m spacy download en_core_web_sm)
